@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMemo } from 'react';
 import { useAppSelector, useAppDispatch } from "../../store/store";
 
 import "./styles.scss";
@@ -40,6 +41,7 @@ const ModifierBoard = ({
   const NoisePlayer = ({ src, volume }:any) => (
     <ReactAudioPlayer preload='auto' autoPlay src={src} loop volume={volume / 100} crossOrigin="anonymous" />
   );
+  
 
   const [cityTraffic, setCityTraffic] = useState<number>(0);
   const [cityRain, setCityRain] = useState<number>(0);
@@ -80,23 +82,70 @@ const ModifierBoard = ({
   const changeVolumeHandler = (e: any) => {
     dispatch(changeVolume(e.target.value));
   };
+  const cityTrafficAudio = useMemo(() => (
+    <NoisePlayer src='./assets/music/city_traffic.mp3' volume={cityTraffic} />
+  ), [cityTraffic]);
+
+  const fireplaceAudio = useMemo(() => (
+    <NoisePlayer src='./assets/music/fireplace.mp3' volume={fireplace} />
+  ), [fireplace]);
+
+  const rainCityAudio = useMemo(() => (
+    <NoisePlayer src='./assets/music/rain_city.mp3' volume={cityRain} />
+  ), [cityRain]);
+
+  const snowAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/snow.mp3' volume={snow} />
+  ), [snow]);
+
+  const fanAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/fan.mp3' volume={fan} />
+  ), [fan]);
+
+  const forestNightAudio = useMemo(() => (
+    <NoisePlayer src='./assets/music/forest_night.mp3' volume={forestNight} />
+  ), [forestNight]);
+
+  const wavesAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/waves.mp3' volume={wave} />
+  ), [wave]);
+
+  const windAudio = useMemo(() => (
+    <NoisePlayer src='./assets/music/wind.mp3' volume={wind} />
+  ), [wind]);
+
+  const peopleAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/people_talk_inside.mp3' volume={people} />
+  ), [people]);
+
+  const riverAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/river.mp3' volume={river} />
+  ), [river]);
+
+  const rainForestAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/rain_forest.mp3' volume={rainForest} />
+  ), [rainForest]);
+
+  const summerStormAudio = useMemo(() =>(
+    <NoisePlayer src='./assets/music/summer_storm.mp3' volume={summerStorm} />
+  ), [summerStorm]);
 
   return (
     <>
       {!openMood && (
         <div>
-          <NoisePlayer src='./assets/music/city_traffic.mp3' volume={cityTraffic} />
-          <NoisePlayer src='./assets/music/fireplace.mp3' volume={fireplace} />
-          <NoisePlayer src='./assets/music/rain_city.mp3' volume={cityRain} />
-          <NoisePlayer src='./assets/music/snow.mp3' volume={snow} />
-          <NoisePlayer src='./assets/music/fan.mp3' volume={fan} />
-          <NoisePlayer src='./assets/music/forest_night.mp3' volume={forestNight} />
-          <NoisePlayer src='./assets/music/waves.mp3' volume={wave} />
-          <NoisePlayer src='./assets/music/wind.mp3' volume={wind} />
-          <NoisePlayer src='./assets/music/people_talk_inside.mp3' volume={people} />
-          <NoisePlayer src='./assets/music/river.mp3' volume={river} />
-          <NoisePlayer src='./assets/music/rain_forest.mp3' volume={rainForest} />
-          <NoisePlayer src='./assets/music/summer_storm.mp3' volume={summerStorm} />
+          {cityTrafficAudio}
+          {fireplaceAudio}
+          {rainCityAudio}
+          {snowAudio}
+          {fanAudio}
+          {forestNightAudio}
+          {wavesAudio}
+          {windAudio}
+          {peopleAudio}
+          {riverAudio}
+          {rainForestAudio}
+          {summerStormAudio}
           
         </div>
       )}
