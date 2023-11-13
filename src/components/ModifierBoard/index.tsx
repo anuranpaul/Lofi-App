@@ -38,7 +38,7 @@ const ModifierBoard = ({
   const [openMood, setOpenMood] = useState<boolean>(false);
   const [openFocus, setOpenFocus] = useState<boolean>(false);
   const NoisePlayer = ({ src, volume }:any) => (
-    <ReactAudioPlayer preload='auto' autoPlay src={src} loop volume={volume / 100} />
+    <ReactAudioPlayer preload='auto' autoPlay src={src} loop volume={volume / 100} crossOrigin="anonymous" />
   );
 
   const [cityTraffic, setCityTraffic] = useState<number>(0);
