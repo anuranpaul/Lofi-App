@@ -53,7 +53,7 @@ const TodoList = () => {
       {todoList.length > 0 ? (
         <>
           {repeat && (
-            <Message variant='danger'>This note is already added</Message>
+            <Message variant='danger'>This note is already added!</Message>
           )}
           <ListGroup className='todolistList'>
             {todoList.map((listItem: any) => (

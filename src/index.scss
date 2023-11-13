@@ -1,12 +1,16 @@
 body {
   overflow-y: scroll;
   overflow-x: hidden;
-  /* // Disable Text Selection */
   user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+
+  @media screen and (max-width: 768px) {
+    /* Adjustments for tablets and smaller screens */
+    overflow-x: auto;
+  }
 }
 
 :root,
@@ -41,9 +45,18 @@ ul {
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
-  /* text-decoration: none; */
 }
 
 body {
   font-family: Arial, sans-serif;
+
+  @media screen and (max-width: 768px) {
+    /* Adjustments for tablets and smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Adjustments for mobile devices */
+    font-size: 12px; /* Further adjust font size for mobile */
+  }
 }

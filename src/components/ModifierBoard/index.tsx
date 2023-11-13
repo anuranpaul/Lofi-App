@@ -37,6 +37,9 @@ const ModifierBoard = ({
 
   const [openMood, setOpenMood] = useState<boolean>(false);
   const [openFocus, setOpenFocus] = useState<boolean>(false);
+  const NoisePlayer = ({ src, volume }:any) => (
+    <ReactAudioPlayer preload='auto' autoPlay src={src} loop volume={volume / 100} />
+  );
 
   const [cityTraffic, setCityTraffic] = useState<number>(0);
   const [cityRain, setCityRain] = useState<number>(0);
@@ -82,29 +85,19 @@ const ModifierBoard = ({
     <>
       {!openMood && (
         <div>
-          <ReactAudioPlayer
-            preload='auto'
-            autoPlay
-            src='./assets/music/city_traffic.mp3'
-            loop
-            volume={cityTraffic / 100}
-          />
-
-          <ReactAudioPlayer
-            preload='auto'
-            autoPlay
-            src='./assets/music/fireplace.mp3'
-            loop
-            volume={fireplace / 100}
-          />
-
-          <ReactAudioPlayer
-            preload='auto'
-            autoPlay
-            src='./assets/music/rain_city.mp3'
-            loop
-            volume={rainValue / 100}
-          />
+          <NoisePlayer src='./assets/music/city_traffic.mp3' volume={cityTraffic} />
+          <NoisePlayer src='./assets/music/fireplace.mp3' volume={fireplace} />
+          <NoisePlayer src='./assets/music/rain_city.mp3' volume={cityRain} />
+          <NoisePlayer src='./assets/music/snow.mp3' volume={snow} />
+          <NoisePlayer src='./assets/music/fan.mp3' volume={fan} />
+          <NoisePlayer src='./assets/music/forest_night.mp3' volume={forestNight} />
+          <NoisePlayer src='./assets/music/waves.mp3' volume={wave} />
+          <NoisePlayer src='./assets/music/wind.mp3' volume={wind} />
+          <NoisePlayer src='./assets/music/people_talk_inside.mp3' volume={people} />
+          <NoisePlayer src='./assets/music/river.mp3' volume={river} />
+          <NoisePlayer src='./assets/music/rain_forest.mp3' volume={rainForest} />
+          <NoisePlayer src='./assets/music/summer_storm.mp3' volume={summerStorm} />
+          
         </div>
       )}
       <div
@@ -165,13 +158,7 @@ const ModifierBoard = ({
               <div className='backgroundNoise'>
                 <div className='noise-option'>
                   <p>City traffic</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/city_traffic.mp3'
-                    loop
-                    volume={cityTraffic / 100}
-                  />
+                  <NoisePlayer src='./assets/music/city_traffic.mp3' volume={cityTraffic} />
                   <Slider
                     className='slider'
                     value={cityTraffic}
@@ -180,13 +167,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>City rain</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/rain_city.mp3'
-                    loop
-                    volume={rainValue / 100}
-                  />
+                  <NoisePlayer src='./assets/music/rain_city.mp3' volume={cityRain} />
                   <Slider
                     className='slider'
                     value={rainValue}
@@ -195,13 +176,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Fireplace</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/fireplace.mp3'
-                    loop
-                    volume={fireplace / 100}
-                  />
+                  <NoisePlayer src='./assets/music/fireplace.mp3' volume={fireplace} />
                   <Slider
                     className='slider'
                     value={fireplace}
@@ -210,13 +185,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Snow</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/snow.mp3'
-                    loop
-                    volume={snow / 100}
-                  />
+                  <NoisePlayer src='./assets/music/snow.mp3' volume={snow} />
                   <Slider
                     className='slider'
                     value={snow}
@@ -225,13 +194,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Summer Storm</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/summer_storm.mp3'
-                    loop
-                    volume={summerStorm / 100}
-                  />
+                  <NoisePlayer src='./assets/music/summer_storm.mp3' volume={summerStorm} />
                   <Slider
                     className='slider'
                     value={summerStorm}
@@ -240,13 +203,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Fan</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/fan.mp3'
-                    loop
-                    volume={fan / 100}
-                  />
+                  <NoisePlayer src='./assets/music/fan.mp3' volume={fan} />
                   <Slider
                     className='slider'
                     value={fan}
@@ -255,13 +212,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Forest Night</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/forest_night.mp3'
-                    loop
-                    volume={forestNight / 100}
-                  />
+                  <NoisePlayer src='./assets/music/forest_night.mp3' volume={forestNight} />
                   <Slider
                     className='slider'
                     value={forestNight}
@@ -270,13 +221,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Wave</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/waves.mp3'
-                    loop
-                    volume={wave / 100}
-                  />
+                  <NoisePlayer src='./assets/music/waves.mp3' volume={wave} />
                   <Slider
                     className='slider'
                     value={wave}
@@ -285,13 +230,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Wind</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/wind.mp3'
-                    loop
-                    volume={wind / 100}
-                  />
+                  <NoisePlayer src='./assets/music/wind.mp3' volume={wind} />
                   <Slider
                     className='slider'
                     value={wind}
@@ -300,13 +239,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>People</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/people_talk_inside.mp3'
-                    loop
-                    volume={people / 100}
-                  />
+                  <NoisePlayer src='./assets/music/people_talk_inside.mp3' volume={people} />
                   <Slider
                     className='slider'
                     value={people}
@@ -315,13 +248,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>River</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/river.mp3'
-                    loop
-                    volume={river / 100}
-                  />
+                  <NoisePlayer src='./assets/music/river.mp3' volume={river} />
                   <Slider
                     className='slider'
                     value={river}
@@ -330,13 +257,7 @@ const ModifierBoard = ({
                 </div>
                 <div className='noise-option'>
                   <p>Rain Forest</p>
-                  <ReactAudioPlayer
-                    preload='auto'
-                    autoPlay
-                    src='./assets/music/rain_forest.mp3'
-                    loop
-                    volume={rainForest / 100}
-                  />
+                  <NoisePlayer src='./assets/music/rain_forest.mp3' volume={rainForest} />
                   <Slider
                     className='slider'
                     value={rainForest}
@@ -370,7 +291,7 @@ const ModifierBoard = ({
               setTimerStart={setTimerStart}
               timerStart={timerStart}
             />
-            <h4>To do list</h4>
+            <h4>To-Do list</h4>
             <TodoList />
           </div>
         )}

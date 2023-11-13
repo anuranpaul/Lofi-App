@@ -1,4 +1,5 @@
-.videoIn {
+.videoIn,
+.videoOut {
   z-index: 1;
   object-fit: cover;
   position: absolute;
@@ -8,16 +9,20 @@
   height: 100%;
   opacity: 1;
   transition: opacity 1s;
+
+  @media (max-width: 768px) {
+    /* Adjustments for tablets and smaller screens */
+    object-fit: contain; /* You might want to change object-fit based on your design */
+  }
+
+  @media (max-width: 480px) {
+    /* Adjustments for mobile devices */
+    object-fit: contain; /* You might want to change object-fit based on your design */
+  }
+  
+  // Additional responsive adjustments can be added here
 }
 
 .videoOut {
-  z-index: 1;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s;
+  opacity: 0; /* This property can be customized based on your design */
 }

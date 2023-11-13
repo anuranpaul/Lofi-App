@@ -12,28 +12,36 @@
   width: 100%;
 
   @media (max-width: 1024px) {
-    width: 100%;
+    flex-direction: column;
+    height: auto;
+    padding: 10px; /* Adjust padding for smaller screens */
   }
+
   .song-name {
     display: flex;
     align-items: center;
 
     span {
       color: white;
-
     }
   }
+
   .controller {
     margin: auto;
     position: relative;
     left: -75px;
     display: flex;
     align-items: center;
-  }
 
-  
     @media (max-width: 1024px) {
-      display: none;
+      left: 0;
+      margin-top: 10px; /* Add space between .song-name and .controller */
     }
   }
 
+  @media (max-width: 480px) {
+    .controller {
+      display: none; /* Hide .controller on smaller screens */
+    }
+  }
+}

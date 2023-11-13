@@ -1,9 +1,9 @@
 $blue: #91ccc2;
 
 .wrapper {
-  position: absolute;
+  position: relative;
   z-index: 10;
-  right: 12px;
+  right: -300px; // Adjust this value to move the button more to the left
   top: -200px;
   width: 250px;
   height: 100px;
@@ -18,7 +18,7 @@ $blue: #91ccc2;
   justify-content: center;
 
   @media (max-width: 1024px) {
-   top: 0;
+    top: 0;
   }
 
   .button {
@@ -27,7 +27,6 @@ $blue: #91ccc2;
     border-radius: 100px;
     width: 40px;
     height: 40px;
-    // padding: 5px;
     margin: 5px auto;
     transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
@@ -39,7 +38,7 @@ $blue: #91ccc2;
     text-align: center;
   }
 
-  //Hover
+  // Hover
   //-----------------------
   .button:hover {
     width: 125px;
@@ -55,4 +54,3 @@ $blue: #91ccc2;
     transition: 0.05s;
   }
 }
-
